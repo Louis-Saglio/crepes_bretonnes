@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="{% static "apprentissage/style.css" %}" />
+   <title>{% block title %}Mon blog sur les crêpes bretonnes{% endblock %}</title>
+</head>
+<body>
+<header>Crêpes bretonnes</header>
+    <nav>
+       {% block nav %}
+       <ul>
+            <li><a href="{% url "calto" 27 88 %}">Accueil</a></li>
+            <li><a href="{% url "toto" 1101001010110100 %}">Blog</a></li>
+            <li><a href="{% url "article" %}">Contact</a></li>
+       </ul>
+       {% endblock %}
+   </nav>
+   <section id="content">
+       {% block content %}{% endblock %}
+   </section>
+<footer>&copy; Crêpes bretonnes</footer>
+</body>
+</html>

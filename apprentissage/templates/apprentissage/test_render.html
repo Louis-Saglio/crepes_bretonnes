@@ -1,0 +1,11 @@
+{% extends 'squelette.html' %}
+{% block content %}
+    {{ variable|truncatewords:3 }}
+    {% for item in liste %}
+        <p>{% if item == "ppml" %}
+            <em>Hahahaha !</em>
+        {% endif %}
+        <strong>{{ item }}</strong>
+        </p>
+    {% endfor %}
+{% endblock %}

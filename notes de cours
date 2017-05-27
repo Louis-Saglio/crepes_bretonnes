@@ -1,0 +1,32 @@
+ajouter une nouvelle application :
+1) python manage.py startapp application
+2) ajouter l'application à la variable INSTALLED_APP dans settings.py
+
+Les urls :
+    Dans nom_prj/urls.py : url(r'^app/', include('app.urls')
+    Mettre les urls de chaque app dans app/urls.py
+    Nommer une url : url(regex_url, name="nom_route")
+
+Les vues :
+    Chaque vue est une fonction qui prend en premier paramètre une instance de HttpRequest par convention request
+    et qui renvoie un objet de type HttpResponse.
+
+Nommer les arguments d'une url :
+(?P<nom>\d+)
+
+Envoyer un code d'erreur 404 : raise django.http.Http404
+
+Rediriger :
+    return redirect(nom_vue, arg1=val)
+    return redirect('http://une.url.com')
+    return redirect('/app/arg/')
+    return redirect('://une.url.com')
+    return redirect('nom_route')
+
+reverse('url_name') renvoie l'url ainsi nommée
+
+
+Questions :
+    1) url(r'^article/(\d+)$', views.view_article) comment django sait que (\d+) est un argument à passer à la vue ?
+    Réponse : si c'est un match de regex. ex: r'^article/(\d+)/url$' (\d+) sera considéré comme argument
+    2) Pourquoi render a besoin de la requet WSGIRequest ? Pourquoi django a-t-il besoin de ça pour générer la réponse ?
