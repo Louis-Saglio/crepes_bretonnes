@@ -30,3 +30,23 @@ Questions :
     1) url(r'^article/(\d+)$', views.view_article) comment django sait que (\d+) est un argument à passer à la vue ?
     Réponse : si c'est un match de regex. ex: r'^article/(\d+)/url$' (\d+) sera considéré comme argument
     2) Pourquoi render a besoin de la requet WSGIRequest ? Pourquoi django a-t-il besoin de ça pour générer la réponse ?
+
+
+les modèles :
+    Une table est représentée par une classe héritant de django.db.models.Model
+    __str__() pour savoir comment l'afficher dans la console
+    save() pour enregistrer
+    for ligne in Modele.object.filter(titre__contains="bout")
+    Modele.object.filter(date_lt=timezone.now())
+    all, filter, exclude, order_by('-date'), get, get_or_create
+    Article.objects.filter(date__lt=timezone.now()).order_by('date','titre').reverse()
+    models.ForeignKey('Categorie')
+    models.OneToOneField('Categorie')
+    models.ManyToManyField(Produit, through='Offre')
+    vendeur.produits.add(p1,p2) pour les ManyToMany géné automatiquement
+    slug = models.SlugField(max_length=100)
+
+
+get_object_or_404(Table, id=id)
+
+url(r'^article/(?P<id>\d+)-(?P<slug>.+)$', views.lire, name='lire')

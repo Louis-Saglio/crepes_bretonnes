@@ -20,5 +20,6 @@ from django.conf.urls import url, include
 urlpatterns = [
 
     url(r'^apprentissage/', include('apprentissage.urls')),
+    url(r'^librairie/', include('librairie.urls'))
 
 ]

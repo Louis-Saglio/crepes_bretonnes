@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static "librairie/style.css" %}" />
+        <title>
+            {% block title %}Ma librairie{% endblock %}
+        </title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="{% url "accueil" %}">Accueil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            {% block content %}{% endblock %}
+        </section>
+    </body>
+</html>
